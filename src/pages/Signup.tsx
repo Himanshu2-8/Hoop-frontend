@@ -8,7 +8,7 @@ export default function Signup() {
 
   const handleSignup = () => {
     axios
-      .post("/api/signup", { name, email, password })
+      .post("http://localhost:3000/signup", { name, email, password })
       .then(() => {
         console.log("Signup successful");
       })

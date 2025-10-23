@@ -1,5 +1,5 @@
 import { Users, Zap, Globe } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import type { ReactElement } from "react";
 
 interface Feature {
