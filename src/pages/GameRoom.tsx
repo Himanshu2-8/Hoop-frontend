@@ -57,13 +57,12 @@ const GameRoom = () => {
       return;
     }
 
-    // Socket event listeners
     socket.on("waiting", (data: any) => {
       console.log("Waiting for opponent...", data);
       setGameState("waiting");
     });
 
-    socket.on("roomReady", (data: { room: RoomData }) => {
+    socket.on("roomReady", (data: { room: Room }) => {
       console.log("Room ready:", data);
       setRoomData(data.room);
       setIsHost(data.room.player1Id === userId);
@@ -154,6 +153,10 @@ const GameRoom = () => {
       socket.off("error");
     };
   }, [token, userId, navigate]);
+
+  const handleGameStart = (): void => {
+    socket.emit("game_start", { code });
+  };
 
   return <div></div>;
 };
