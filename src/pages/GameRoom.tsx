@@ -155,10 +155,52 @@ const GameRoom = () => {
   }, [token, userId, navigate]);
 
   const handleGameStart = (): void => {
-    socket.emit("game_start", { code });
+    socket.emit("game_start", {code});
   };
 
-  return <div></div>;
+  const handleAnswerSubmit=(answer:string)=>{
+    if(hasAnswered) return;
+    setSelectedAnswer(answer);
+    setHasAnswered(true);
+    socket.emit("submit_answer",{code,selectedAnswer,userId});
+  }
+
+  if(gameState=="waiting"){
+    return <div className="min-h-screen bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full text-center">
+        <div className="mb-6">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-purple-500 mx-auto"></div>
+        </div>
+        <h1 className="text-3xl font-bold text-gray-800 mb-4">Room Code</h1>
+        <div className="bg-purple-100 rounded-lg p-4 mb-6">
+          <p className="text-4xl font-mono font-bold text-purple-600">{code}</p>
+        </div>
+        <p className="text-gray-600 text-lg">Waiting for opponent to join...</p>
+      </div>
+    </div>
+  }
+
+  if(gameState=='ready'){
+    return <div className="min-h-screen bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full text-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Room Ready!</h1>
+        <div className="bg-green-100 rounded-lg p-4 mb-6">
+          <p className="text-lg text-gray-700">✅ Both players connected</p>
+        </div>
+        {isHost ? (
+            <button
+                onClick={handleGameStart}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-xl transition-all transform hover:scale-105"
+            >
+              Start Game
+            </button>
+        ) : (
+            <p className="text-gray-600 text-lg">Waiting for host to start the game...</p>
+        )}
+      </div>
+    </div>
+  }
+
 };
 
 export default GameRoom;
