@@ -1,6 +1,7 @@
 import { Users, Zap, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ReactElement } from "react";
+import { Link } from "react-router-dom";
 
 interface Feature {
   icon: ReactElement;
@@ -15,7 +16,7 @@ interface Step {
   desc: string;
 }
 
-export default function Home(): ReactElement {
+const Home = () => {
   const features: Feature[] = [
     {
       icon: <Zap className="w-8 h-8" />,
@@ -105,23 +106,18 @@ export default function Home(): ReactElement {
               room, share the code, and see who's the ultimate NBA expert!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group px-10 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                Start Playing Now
-                <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-white/90 backdrop-blur-sm text-teal-700 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                How It Works
-              </motion.button>
+              <Link to="/signup">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group px-10 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-white rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+                >
+                  Start Playing Now
+                  <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
 
@@ -192,4 +188,6 @@ export default function Home(): ReactElement {
       </footer>
     </div>
   );
-}
+};
+
+export default Home;

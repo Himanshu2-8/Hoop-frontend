@@ -7,10 +7,13 @@ import Home from "./components/Home";
 import CreateGame from "./pages/CreateGame";
 import JoinRoom from "./pages/JoinRoom";
 import GameRoom from "./pages/GameRoom";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative z-10">
       <Navbar />
       <main className="flex-1">
         <Outlet />
@@ -37,16 +40,29 @@ export default function App() {
           element: <Signup />,
         },
         {
-          path: "/create",
-          element: <CreateGame />,
-        },
-        {
-          path: "/join",
-          element: <JoinRoom />,
-        },
-        {
-          path: "/room/:code",
-          element: <GameRoom />,
+          element: <ProtectedRoute />,
+          children: [
+            {
+              path: "/dashboard",
+              element: <Dashboard />,
+            },
+            {
+              path: "/create",
+              element: <CreateGame />,
+            },
+            {
+              path: "/join",
+              element: <JoinRoom />,
+            },
+            {
+              path: "/room/:code",
+              element: <GameRoom />,
+            },
+            {
+              path: "/profile",
+              element: <Profile />,
+            },
+          ],
         },
       ],
     },
