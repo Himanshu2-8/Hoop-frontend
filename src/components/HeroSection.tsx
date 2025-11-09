@@ -5,7 +5,7 @@ import players from "../../public/players.png";
 export default function HeroSection() {
   return (
     <section
-      className="relative flex flex-col md:flex-row justify-between items-center md:items-start gap-12 md:gap-20 py-24 px-8
+      className="relative flex flex-col md:flex-row justify-between items-center md:items-start gap-12 md:gap-20 py-18 px-8
       bg-gradient-to-br from-[#FFF8E7] via-[#FDF3E5] to-[#E9F4F4]
       rounded-3xl shadow-lg overflow-hidden"
     >

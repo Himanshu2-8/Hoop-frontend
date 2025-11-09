@@ -2,61 +2,77 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-export default function Signin() {
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:3000/signin", {
-        email,
-        password,
-      });
-      if (res.status === 200) {
-        const token = res.data.token;
-        localStorage.setItem("token", token);
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      alert("Sign-in failed. Please try again.");
-      console.error(error);
+  const handleSignup = async() => {
+    const res = await axios.post("http://localhost:3000/signin", { email, password })
+    if(res.status===200){
+      console.log("Signin successful");
+      localStorage.setItem("token", res.data.token);
+      navigate("/dashboard");
+    }
+    else{
+      console.error("Signin failed", res);
+      alert("Signin failed");
+      navigate("/signin");
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Sign In</h1>
-        <form onSubmit={handleSignIn} className="space-y-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFF8E7] via-[#FDF3E5] to-[#E9F4F4] p-6">
+      <div className="bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-10 w-full max-w-md text-center">
+        <h1 className="text-4xl font-extrabold text-amber-600 mb-6">
+          Signin
+        </h1>
+        <p className="text-gray-600 mb-8">
+          Join <span className="font-bold text-amber-600">Hoop</span> and connect with players, matches, and teams near you.
+        </p>
+
+        <div className="space-y-6">
           <div>
-            <label className="text-sm font-bold text-gray-600 block mb-2">Email</label>
+            <label className="text-sm font-semibold text-gray-700 block mb-2">
+              Email
+            </label>
             <input
               type="email"
-              placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="you@example.com"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/70 focus:border-amber-500 transition-all"
             />
           </div>
+
           <div>
-            <label className="text-sm font-bold text-gray-600 block mb-2">Password</label>
+            <label className="text-sm font-semibold text-gray-700 block mb-2">
+              Password
+            </label>
             <input
               type="password"
-              placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="••••••••"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/70 focus:border-amber-500 transition-all"
             />
           </div>
-          <button type="submit" className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-xl transition-all transform hover:scale-105">
+
+          <button
+            type="button"
+            onClick={handleSignup}
+            className="w-full bg-gradient-to-r from-amber-500 to-orange-400 hover:from-amber-600 hover:to-orange-500 text-white font-bold py-3 px-6 rounded-xl text-lg transition-all transform hover:scale-105 shadow-md"
+          >
             Sign In
           </button>
-        </form>
-        <p className="text-center text-gray-600 mt-6">
+        </div>
+
+        <p className="text-gray-600 mt-6">
           Don't have an account?{" "}
-          <Link to="/signup" className="text-green-600 hover:underline font-semibold">
+          <Link
+            to="/signup"
+            className="text-amber-600 hover:underline font-semibold"
+          >
             Sign Up
           </Link>
         </p>

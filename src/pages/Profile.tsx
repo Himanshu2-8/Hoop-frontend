@@ -15,8 +15,6 @@ const Profile = () => {
     if (token) {
       try {
         const decodedToken = JSON.parse(atob(token.split(".")[1]));
-        // In a real app, you would fetch the user's data from the server
-        // For now, we'll just use the data from the token and add a dummy score
         setUser({
           name: decodedToken.name,
           email: decodedToken.email,

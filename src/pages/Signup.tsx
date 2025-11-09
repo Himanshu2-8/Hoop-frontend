@@ -21,47 +21,70 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Sign Up</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFF8E7] via-[#FDF3E5] to-[#E9F4F4] p-6">
+      <div className="bg-white/70 backdrop-blur-md rounded-3xl shadow-xl p-10 w-full max-w-md text-center">
+        <h1 className="text-4xl font-extrabold text-amber-600 mb-6">
+          Create Your Account
+        </h1>
+        <p className="text-gray-600 mb-8">
+          Join <span className="font-bold text-amber-600">Hoop</span> and connect with players, matches, and teams near you.
+        </p>
+
         <div className="space-y-6">
           <div>
-            <label className="text-sm font-bold text-gray-600 block mb-2">Name</label>
+            <label className="text-sm font-semibold text-gray-700 block mb-2">
+              Name
+            </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your Name"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Your name"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/70 focus:border-amber-500 transition-all"
             />
           </div>
+
           <div>
-            <label className="text-sm font-bold text-gray-600 block mb-2">Email</label>
+            <label className="text-sm font-semibold text-gray-700 block mb-2">
+              Email
+            </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/70 focus:border-amber-500 transition-all"
             />
           </div>
+
           <div>
-            <label className="text-sm font-bold text-gray-600 block mb-2">Password</label>
+            <label className="text-sm font-semibold text-gray-700 block mb-2">
+              Password
+            </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500/70 focus:border-amber-500 transition-all"
             />
           </div>
-          <button type="button" onClick={handleSignup} className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-xl transition-all transform hover:scale-105">
+
+          <button
+            type="button"
+            onClick={handleSignup}
+            className="w-full bg-gradient-to-r from-amber-500 to-orange-400 hover:from-amber-600 hover:to-orange-500 text-white font-bold py-3 px-6 rounded-xl text-lg transition-all transform hover:scale-105 shadow-md"
+          >
             Sign Up
           </button>
         </div>
-        <p className="text-center text-gray-600 mt-6">
+
+        <p className="text-gray-600 mt-6">
           Already have an account?{" "}
-          <Link to="/signin" className="text-green-600 hover:underline font-semibold">
+          <Link
+            to="/signin"
+            className="text-amber-600 hover:underline font-semibold"
+          >
             Sign In
           </Link>
         </p>
