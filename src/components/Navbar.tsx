@@ -98,7 +98,6 @@ export default function Navbar({
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
