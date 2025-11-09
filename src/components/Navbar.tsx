@@ -54,11 +54,11 @@ export default function Navbar({
 
             {token ? (
               <>
-                <span className="text-gray-700 font-semibold">
+                <span className="text-amber-800 font-semibold">
                   Hi, {userName}
                 </span>
 
-                <Link to="/profile">
+                <Link to="/dashboard">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -116,7 +116,7 @@ export default function Navbar({
 
             {token ? (
               <>
-                <span className="text-gray-700 font-semibold">
+                <span className="text-amber-800 font-semibold">
                   Hi, {userName}
                 </span>
                 <Link to="/profile" onClick={() => setIsMenuOpen(false)}>

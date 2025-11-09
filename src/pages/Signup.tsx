@@ -10,7 +10,7 @@ export default function Signup() {
 
   const handleSignup = () => {
     axios
-      .post("http://localhost:3000/signup", { name, email, password })
+      .post("https://hoop-backend.onrender.com/signup", { name, email, password })
       .then(() => {
         console.log("Signup successful");
         navigate("/signin");
@@ -26,13 +26,13 @@ export default function Signup() {
         <h1 className="text-4xl font-extrabold text-amber-600 mb-6">
           Create Your Account
         </h1>
-        <p className="text-gray-600 mb-8">
+        <p className="text-amber-800 mb-8">
           Join <span className="font-bold text-amber-600">Hoop</span> and connect with players, matches, and teams near you.
         </p>
 
         <div className="space-y-6">
           <div>
-            <label className="text-sm font-semibold text-gray-700 block mb-2">
+            <label className="text-sm font-semibold text-amber-800 block mb-2">
               Name
             </label>
             <input
@@ -45,7 +45,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label className="text-sm font-semibold text-gray-700 block mb-2">
+            <label className="text-sm font-semibold text-amber-800 block mb-2">
               Email
             </label>
             <input
@@ -58,7 +58,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label className="text-sm font-semibold text-gray-700 block mb-2">
+            <label className="text-sm font-semibold text-amber-800 block mb-2">
               Password
             </label>
             <input
@@ -79,7 +79,7 @@ export default function Signup() {
           </button>
         </div>
 
-        <p className="text-gray-600 mt-6">
+        <p className="text-amber-800 mt-6">
           Already have an account?{" "}
           <Link
             to="/signin"

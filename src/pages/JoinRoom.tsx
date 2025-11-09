@@ -23,31 +23,31 @@ const JoinRoom = () => {
       navigate("/signin");
       return;
     }
-    if (!roomCode.trim()) {
-      return;
-    }
+    if (!roomCode.trim()) return;
 
     const userId = JSON.parse(atob(token.split(".")[1])).id;
-
     socket.emit("join_room", { code: roomCode, userId });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-green-800 mb-8 text-center">Join Game</h1>
+    <div className="min-h-screen bg-gradient-to-br from-[#FFF8E7] via-[#FDF3E5] to-[#E9F4F4] flex items-center justify-center p-6">
+      <div className="max-w-md w-full bg-white rounded-3xl shadow-xl border border-amber-200 p-8 text-center">
+        <h1 className="text-4xl font-bold text-amber-700 mb-8">Join Game</h1>
         <div className="space-y-6">
           <div>
-            <label className="text-sm font-bold text-gray-600 block mb-2">Enter Room Code</label>
+            <label className="text-sm font-semibold text-amber-800 block mb-2">
+              Enter Room Code
+            </label>
             <input
               placeholder="123456"
-              onChange={(e) => {
-                setRoomCode(e.target.value);
-              }}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              onChange={(e) => setRoomCode(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-all"
             />
           </div>
-          <button onClick={handleJoinRoom} className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-xl transition-all transform hover:scale-105">
+          <button
+            onClick={handleJoinRoom}
+            className="w-full bg-gradient-to-r from-amber-500 to-orange-400 hover:from-amber-600 hover:to-orange-500 text-white font-bold py-3 px-6 rounded-xl text-lg transition-all transform hover:scale-105 shadow-md"
+          >
             Join Room
           </button>
         </div>
@@ -57,4 +57,3 @@ const JoinRoom = () => {
 };
 
 export default JoinRoom;
-

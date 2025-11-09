@@ -25,7 +25,7 @@ const CreateGame = () => {
 
   const handleRoomCodeLogin = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/create", {
+      const res = await axios.get("https://hoop-backend.onrender.com/create", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

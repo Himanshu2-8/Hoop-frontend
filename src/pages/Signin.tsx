@@ -2,13 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-export default function Signup() {
+export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignup = async() => {
-    const res = await axios.post("http://localhost:3000/signin", { email, password })
+  const handleSignin = async() => {
+    const res = await axios.post("https://hoop-backend.onrender.com/signin", { email, password })
     if(res.status===200){
       console.log("Signin successful");
       localStorage.setItem("token", res.data.token);
@@ -27,13 +27,13 @@ export default function Signup() {
         <h1 className="text-4xl font-extrabold text-amber-600 mb-6">
           Signin
         </h1>
-        <p className="text-gray-600 mb-8">
+        <p className="text-amber-800 mb-8">
           Join <span className="font-bold text-amber-600">Hoop</span> and connect with players, matches, and teams near you.
         </p>
 
         <div className="space-y-6">
           <div>
-            <label className="text-sm font-semibold text-gray-700 block mb-2">
+            <label className="text-sm font-semibold text-amber-800 block mb-2">
               Email
             </label>
             <input
@@ -46,7 +46,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label className="text-sm font-semibold text-gray-700 block mb-2">
+            <label className="text-sm font-semibold text-amber-800 block mb-2">
               Password
             </label>
             <input
@@ -60,14 +60,14 @@ export default function Signup() {
 
           <button
             type="button"
-            onClick={handleSignup}
+            onClick={handleSignin}
             className="w-full bg-gradient-to-r from-amber-500 to-orange-400 hover:from-amber-600 hover:to-orange-500 text-white font-bold py-3 px-6 rounded-xl text-lg transition-all transform hover:scale-105 shadow-md"
           >
             Sign In
           </button>
         </div>
 
-        <p className="text-gray-600 mt-6">
+        <p className="text-amber-800 mt-6">
           Don't have an account?{" "}
           <Link
             to="/signup"

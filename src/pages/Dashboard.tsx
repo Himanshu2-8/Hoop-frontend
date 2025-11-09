@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFF8E7] via-[#FDF3E5] to-[#E9F4F4] flex flex-col items-center justify-center p-6 rounded-3xl shadow-xl shadow-amber-500">
+    <div className="min-h-screen bg-gradient-to-br from-[#FFF8E7] via-[#FDF3E5] to-[#E9F4F4] flex flex-col items-center justify-center p-6 rounded-3xl">
       <header className="w-full max-w-4xl mb-8 flex flex-col items-center text-center">
         <h1 className="text-5xl font-extrabold text-amber-700 mb-2">Welcome back, Player!</h1>
         <p className="text-amber-600 text-lg">Get ready to jump into the action and track your progress.</p>
       </header>
 
-      <section className="w-full max-w-4xl flex justify-center gap-6 mb-15">
+      <section className="w-full max-w-4xl flex justify-center gap-6 mb-16">
 
         <Link to="/create" className="bg-amber-400 hover:bg-amber-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center transition transform hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -17,14 +17,14 @@ const Dashboard = () => {
           <span className="text-xl font-semibold">Create Game</span>
         </Link>
 
-        <Link to="/matches" className="bg-amber-400 hover:bg-amber-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center transition transform hover:scale-105">
+        <Link to="/join" className="bg-amber-400 hover:bg-amber-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center transition transform hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m4 0h-8" />
           </svg>
           <span className="text-xl font-semibold">Join a Game</span>
         </Link>
 
-        <Link to="/leaderboard" className="bg-amber-400 hover:bg-amber-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center transition transform hover:scale-105">
+        <Link to="/profile" className="bg-amber-400 hover:bg-amber-500 text-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center transition transform hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 14s1.5-2 4-2 4 2 4 2v5H8v-5zM12 12a4 4 0 100-8 4 4 0 000 8z" />
           </svg>

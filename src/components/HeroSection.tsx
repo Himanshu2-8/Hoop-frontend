@@ -22,13 +22,13 @@ export default function HeroSection() {
           </Button>
         </div>
 
-        <h1 className="text-6xl md:text-7xl font-bold leading-tight text-gray-800 mb-2">
+        <h1 className="text-6xl md:text-7xl font-bold leading-tight text-amber-900 mb-2">
           Play.
         </h1>
         <h1 className="text-6xl md:text-7xl font-bold leading-tight text-amber-600 mb-2">
           Compete.
         </h1>
-        <h1 className="text-6xl md:text-7xl font-bold leading-tight text-gray-800">
+        <h1 className="text-6xl md:text-7xl font-bold leading-tight text-amber-900">
           Connect.
         </h1>
 
@@ -47,8 +47,8 @@ export default function HeroSection() {
               Get Started
             </button>
           </Link>
-          <Link to={"/community"}>
-            <button className="px-8 py-3 bg-white text-gray-800 rounded-full shadow hover:shadow-lg transition font-semibold">
+          <Link to={"/dashboard"}>
+            <button className="px-8 py-3 bg-amber-100 text-amber-800 rounded-full shadow hover:shadow-lg transition font-semibold">
               Explore Community
             </button>
           </Link>
